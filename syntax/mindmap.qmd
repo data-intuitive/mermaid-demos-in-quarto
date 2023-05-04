@@ -6,7 +6,7 @@
 
 ### An example of a mindmap.
 
-```mermaid
+```{mermaid}
 mindmap
   root((mindmap))
     Origins
@@ -43,7 +43,7 @@ mindmap
 
 In summary is a simple text outline where there are one node at the root level called `Root` which has one child `A`. `A` in turn has two children `B`and `C`. In the diagram below we can see this rendered as a mindmap.
 
-```mermaid
+```{mermaid}
 mindmap
 Root
     A
@@ -154,7 +154,7 @@ mindmap
 
 This outline is unclear as `B` clearly is a child of `A` but when we move on to `C` the clarity is lost. `C` is not a child of `B` with a higher indentation nor does it have the same indentation as `B`. The only thing that is clear is that the first node with smaller indentation, indicating a parent, is A. Then Mermaid relies on this known truth and compensates for the unclear indentation and selects `A` as a parent of `C` leading till the same diagram with `B` and `C` as siblings.
 
-```mermaid
+```{mermaid}
 mindmap
 Root
     A

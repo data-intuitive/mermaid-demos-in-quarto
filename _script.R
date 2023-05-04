@@ -18,7 +18,7 @@ if (!dir.exists("syntax")) dir.create("syntax")
 for (file in syntax_files) {
   lines <- readr::read_lines(file)
 
-  new_lines <- gsub("```(mermaid-example|mmd)", "```{mermaid}", lines)
+  new_lines <- gsub("```(mermaid-example|mmd|mermaid)", "```{mermaid}", lines)
   # remove titles in codeblocks
   new_lines <- gsub("```\\{mermaid\\}\n---\ntitle:[^-]*\n---", "```{mermaid}", paste(new_lines, collapse = "\n"))
 

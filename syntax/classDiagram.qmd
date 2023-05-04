@@ -10,9 +10,9 @@ Mermaid can render class diagrams.
 
 ```{mermaid}
 classDiagram
-    note "From Duck till Zebra"
+    %%note "From Duck till Zebra"
     Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    %%note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
     Animal <|-- Fish
     Animal <|-- Zebra
     Animal : +int age
@@ -33,6 +33,10 @@ classDiagram
         +run()
     }
 ```
+
+:::{.callout-important}
+Notes were commented out because they were not supported yet.
+:::
 
 ## Syntax
 
@@ -412,7 +416,7 @@ click Shape2 call callbackFunction() "This is a tooltip for a callback"
 </script>
 ```
 
-```mermaid
+```{mermaid}
 classDiagram
     class Class01
     class Class02
@@ -500,20 +504,24 @@ It is also possible to attach a class to a list of nodes in one statement:
 
 A shorter form of adding a class is to attach the classname to the node using the `:::` operator:
 
-```{mermaid}
+```mermaid
 classDiagram
     class Animal:::cssClass
 ```
 
 Or:
 
-```{mermaid}
+```mermaid
 classDiagram
     class Animal:::cssClass {
         -int sizeInFeet
         -canEat()
     }
 ```
+
+:::{.callout-important}
+Disabled because it was not supported in mermaid 9.1.1 yet
+:::
 
 ?> cssClasses cannot be added using this shorthand method at the same time as a relation statement.
 

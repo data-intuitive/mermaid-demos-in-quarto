@@ -334,7 +334,7 @@ class Moving, Crash movement
 Here is a diagram that shows the examples in use. Note that the `Crash` state has two classDef styles applied: `movement`
 and `badBadEvent`
 
-```{mermaid}
+```mermaid
    stateDiagram
    direction TB
 
@@ -358,6 +358,10 @@ and `badBadEvent`
    class end badBadEvent
 ```
 
+:::{.callout-important}
+Not a valid Mermaid 9.1.1 syntax
+:::
+
 #### 2. `:::` operator to apply a style to a state
 
 You can apply a classDef style to a state using the `:::` (three colons) operator. The syntax is
@@ -368,7 +372,7 @@ You can apply a classDef style to a state using the `:::` (three colons) operato
 
 You can use this in a diagram within a statement using a class. This includes the start and end states. For example:
 
-```{mermaid}
+```mermaid
 stateDiagram
    direction TB
 
@@ -387,6 +391,10 @@ stateDiagram
    Crash:::badBadEvent --> [*]
 ```
 
+:::{.callout-important}
+Not a valid Mermaid 9.1.1 syntax
+:::
+
 ## Spaces in state names
 
 Spaces can be added to a state by first defining the state with an id and then referencing the id later.
@@ -396,7 +404,7 @@ After it has been defined, **yswsii** is used in the diagram in the first transi
 and also in the transition to **YetAnotherState** (`yswsii --> YetAnotherState`).  
 (**yswsii** has been styled so that it is different from the other states.)
 
-```{mermaid}
+```mermaid
 stateDiagram
     classDef yourState font-style:italic,font-weight:bold,fill:white
 
@@ -407,3 +415,7 @@ stateDiagram
     yswsii --> YetAnotherState
     YetAnotherState --> [*]
 ```
+
+:::{.callout-important}
+Not a valid Mermaid 9.1.1 syntax
+:::

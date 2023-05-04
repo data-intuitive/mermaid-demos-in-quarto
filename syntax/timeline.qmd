@@ -6,7 +6,7 @@
 
 ### An example of a timeline.
 
-```mermaid
+```{mermaid}
 timeline
     title History of Social Media Platform
     2002 : LinkedIn

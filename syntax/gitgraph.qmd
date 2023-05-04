@@ -201,7 +201,7 @@ For example: `merge develop id: "my_custom_id" tag: "my_custom_tag" type: REVERS
 
 Let us see how this works with the help of the following diagram:
 
-```{mermaid}
+```mermaid
     gitGraph
        commit id: "1"
        commit id: "2"
@@ -226,6 +226,10 @@ Let us see how this works with the help of the following diagram:
        commit id: "9"
 ```
 
+:::{.callout-important}
+Not valid syntax in Mermaid 9.1.1
+:::
+
 ### Cherry Pick commit from another branch
 
 Similar to how 'git' allows you to cherry-pick a commit from **another branch** onto the **current** branch, Mermaid also supports this functionality. You can also cherry-pick a commit from another branch using the `cherry-pick` keyword.
@@ -244,7 +248,7 @@ A few important rules to note here are:
 
 Let see an example:
 
-```{mermaid}
+```mermaid
     gitGraph
        commit id: "ZERO"
        branch develop
@@ -260,6 +264,10 @@ Let see an example:
        checkout develop
        commit id:"C"
 ```
+
+:::{.callout-important}
+Not valid syntax in Mermaid 9.1.1
+:::
 
 ## Gitgraph specific configuration options
 
