@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: e3c5b1f9-4e9e-46c1-9da1-cf73bbaab4d5
+      url: 'https://mermaid-demos-in-quarto.netlify.app'
