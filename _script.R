@@ -25,3 +25,10 @@ for (file in syntax_files) {
   dest_file <- paste0("syntax/", gsub("\\.md", ".qmd", basename(file)))
   readr::write_lines(new_lines, dest_file)
 }
+
+# also render to gfm
+for (qmd in list.files("syntax", pattern = "*.qmd$", full.names = TRUE)) {
+  dest_file <- paste0(dirname(qmd), "/_", gsub("\\.qmd$", ".md", basename(qmd)))
+  out <- system(paste0("quarto render ", qmd, " --to gfm --output -"), intern = TRUE, ignore.stderr = TRUE)
+  readr::write_lines(out, dest_file)
+}
