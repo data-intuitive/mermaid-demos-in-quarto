@@ -27,8 +27,8 @@ for (file in syntax_files) {
 }
 
 # # also render to gfm
-# for (qmd in list.files("syntax", pattern = "*.qmd$", full.names = TRUE)) {
-#   dest_file <- paste0(dirname(qmd), "/_", gsub("\\.qmd$", ".md", basename(qmd)))
-#   out <- system(paste0("quarto render ", qmd, " --to gfm --output -"), intern = TRUE, ignore.stderr = TRUE)
-#   readr::write_lines(out, dest_file)
-# }
+for (qmd in list.files("syntax", pattern = "*.qmd$", full.names = TRUE)) {
+  dest_file <- paste0(dirname(qmd), "/_", gsub("\\.qmd$", ".md", basename(qmd)))
+  out <- system(paste0("/home/rcannood/workspace/other/quarto-cli/package/dist/bin/quarto render ", qmd, " --to gfm --output -"), intern = TRUE, ignore.stderr = TRUE)
+  readr::write_lines(out, dest_file)
+}
