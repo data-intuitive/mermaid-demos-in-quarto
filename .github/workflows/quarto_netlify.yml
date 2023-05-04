@@ -26,6 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+      - run: pip install -r requirements.txt
+
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
