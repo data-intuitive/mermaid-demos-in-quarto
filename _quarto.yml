@@ -2,11 +2,15 @@ project:
   type: website
 
 website:
-  title: "test_mermaid"
+  title: "mermaid demos"
   navbar:
     left:
       - href: index.qmd
         text: Home
+  
+  sidebar:
+    contents:
+      - auto: "*.qmd"
 
 format:
   html:

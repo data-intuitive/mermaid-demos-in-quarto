@@ -1,5 +1,5 @@
 ---
-title: "test_mermaid"
+title: "Home"
 listing:
   contents: "demos/*.qmd"
   type: default
