@@ -1,6 +1,5 @@
 ---
 title: "Home"
-listing:
-  contents: "demos/*.qmd"
-  type: default
 ---
+
+A quarto rendering of the [Mermaid diagram syntax examples](https://mermaid.js.org/syntax/flowchart.html). Click on links on the sidebar on the left and compare with the mermaid diagrams rendered on the original site.

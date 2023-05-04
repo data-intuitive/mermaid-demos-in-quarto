@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "mermaid demos"
+  title: "Mermaid syntax demos in Quarto"
   navbar:
     left:
       - href: index.qmd
@@ -10,7 +10,36 @@ website:
   
   sidebar:
     contents:
-      - auto: "*.qmd"
+      - text: 📊 Diagram syntax
+        contents: 
+          - text: Flowchart
+            href: syntax/flowchart.qmd
+          - text: Sequence Diagram
+            href: syntax/sequenceDiagram.qmd
+          - text: Class Diagram
+            href: syntax/classDiagram.qmd
+          - text: State Diagram
+            href: syntax/stateDiagram.qmd
+          - text: Entity Relationship Diagram
+            href: syntax/entityRelationshipDiagram.qmd
+          - text: User Journey
+            href: syntax/userJourney.qmd
+          - text: Gantt
+            href: syntax/gantt.qmd
+          - text: Pie Chart
+            href: syntax/pie.qmd
+          - text: Requirement Diagram
+            href: syntax/requirementDiagram.qmd
+          - text: Gitgraph (Git) Diagram 🔥
+            href: syntax/gitgraph.qmd
+          - text: C4C Diagram (Context) Diagram 🦺⚠️
+            href: syntax/c4c.qmd
+          - text: Mindmaps 🔥
+            href: syntax/mindmap.qmd
+          - text: Timeline 🔥
+            href: syntax/timeline.qmd
+          - syntax/examples.qmd
+
 
 format:
   html:
