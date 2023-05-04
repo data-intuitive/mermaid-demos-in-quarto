@@ -1,0 +1,30 @@
+---
+title: "Git diagram demo"
+---
+
+```{mermaid}
+
+    ---
+    title: Simple Git diagram
+    ---
+    gitGraph:
+    options
+    {
+    "nodeSpacing": 50,
+    "nodeRadius": 5
+    }
+    end
+    branch master
+    commit
+    branch newbranch
+    checkout newbranch
+    commit
+    commit
+    checkout master
+    commit
+    commit
+    merge newbranch
+    
+```
+
+

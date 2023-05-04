@@ -15,6 +15,8 @@ demo_files <- list.files(
   pattern = "\\.html$"
 )
 
+if (!dir.exists("demos")) dir.create("demos")
+
 for (source_file in demo_files) {
   # Read HTML content
   html_content <- read_html(source_file)
@@ -28,9 +30,9 @@ for (source_file in demo_files) {
   markdown_text <- body_content %>%
     map_chr(function(x) {
       tag_name <- xml2::xml_name(x)
-      
       if (tag_name == "h1") {
-        glue("---\ntitle: \"{html_text(x)}\"\n---")
+        text <- gsub("\"", "\\\\\\\"", html_text(x))
+        glue("---\ntitle: \"{text}\"\n---")
       } else if (tag_name == "pre") {
         glue("```{{mermaid}}\n{html_text(x)}\n```")
       } else if (tag_name == "hr") {

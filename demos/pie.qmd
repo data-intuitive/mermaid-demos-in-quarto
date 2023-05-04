@@ -1,0 +1,32 @@
+---
+title: "Pie chart demos"
+---
+
+```{mermaid}
+
+      pie title Pets adopted by volunteers
+      accTitle: simple pie char demo
+      accDescr: pie chart with 3 sections: dogs, cats, rats. Most are dogs.
+    "Dogs" : 386
+    "Cats" : 85
+    "Rats" : 15
+    
+```
+
+---
+
+```{mermaid}
+
+    %%{init: {"pie": {"textPosition": 0.9}, "themeVariables": {"pieOuterStrokeWidth": "5px"}} }%%
+    pie
+      title Key elements in Product X
+        accTitle: Key elements in Product X
+      accDescr: This is a pie chart showing the key elements in Product X.
+      "Calcium" : 42.96
+      "Potassium" : 50.05
+      "Magnesium" : 10.01
+      "Iron" :  5
+    
+```
+
+
