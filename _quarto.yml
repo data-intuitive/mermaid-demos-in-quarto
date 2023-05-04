@@ -3,6 +3,9 @@ project:
 
 website:
   title: "Mermaid syntax demos in Quarto"
+  site-url: https://mermaid-demos-in-quarto.netlify.app
+  repo-url: https://github.com/data-intuitive/mermaid-demos-in-quarto
+  repo-actions: [edit, issue] 
   navbar:
     left:
       - href: index.qmd
