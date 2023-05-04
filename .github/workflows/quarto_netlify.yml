@@ -49,19 +49,8 @@ jobs:
           auth: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           site: ${{ env.NETLIFY_SITE_ID }}
           dir: '_site'
-          alias: "main"
-          message: 'Deploy main ${{ github.ref }}'
-
-      ## release actions
-      - name: Deploy release to Netlify 🚀
-        uses: data-intuitive/netlify-deploy-site@v1
-        if: github.event_name == 'release'
-        with:
-          auth: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          site: ${{ env.NETLIFY_SITE_ID }}
-          dir: '_site'
           prod: true
-          message: 'Deploy production ${{ github.ref }}'
+          message: 'Deploy main ${{ github.ref }}'
 
       ## PR actions
       - name: Deploy preview
