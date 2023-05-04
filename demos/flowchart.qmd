@@ -8,9 +8,6 @@ title: "Comparison \"graph vs. flowchart\""
 
 ```{mermaid}
 
-    ---
-    title: This is a complicated flow
-    ---
     graph LR
       accTitle: This is a complicated flow
       accDescr: This is the descriptoin for the complicated flow.
@@ -223,10 +220,6 @@ title: "Comparison \"graph vs. flowchart\""
 
 
 ```{mermaid}
-
-    ---
-    title: What to buy
-    ---
     graph TD
       accTitle: What to buy
       accDescr: Options of what to buy with Christmas money
@@ -1714,11 +1707,3 @@ title: "Comparison \"graph vs. flowchart\""
 ```
 
 ---
-
----
-title: "Anchor for \"link-clicked\" test"
----
-
-
-
-

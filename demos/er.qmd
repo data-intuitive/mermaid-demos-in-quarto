@@ -1,8 +1,8 @@
-```{mermaid}
+---
+title: ER diagram
+---
 
-      ---
-      title: This is a title
-      ---
+```{mermaid}
       erDiagram
         %% title This is a title
         %% accDescription Test a description
