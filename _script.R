@@ -45,5 +45,27 @@ for (source_file in demo_files) {
 
   # Write markdown to file
   dest_file <- paste0("demos/", gsub("\\.html", ".qmd", basename(source_file)))
-  writeLines(markdown_text, dest_file)
+  readr::write_lines(markdown_text, dest_file)
+}
+
+# todo: copy md from syntax dir
+
+
+syntax_files <- list.files(
+  paste0(temp_dir, "/packages/mermaid/src/docs/syntax"),
+  full.names = TRUE,
+  recursive = TRUE,
+  pattern = "\\.md$"
+)
+
+if (!dir.exists("syntax")) dir.create("syntax")
+
+
+for (file in syntax_files) {
+  lines <- readr::read_lines(file)
+
+  new_lines <- gsub("```mermaid-example", "```{mermaid}", lines)
+
+  dest_file <- paste0("syntax/", gsub("\\.md", ".qmd", basename(file)))
+  readr::write_lines(new_lines, dest_file)
 }
