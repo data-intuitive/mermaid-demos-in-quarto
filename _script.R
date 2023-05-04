@@ -1,8 +1,8 @@
 # clone mermaid repo but remove on exit
 temp_dir <- tempfile(pattern = "mermaid")
 on.exit(unlink(temp_dir, recursive = TRUE), add = TRUE)
-system(paste0("git clone git@github.com:mermaid-js/mermaid.git ", temp_dir))
-# todo: check out tag v9.3.0
+processx::run("git", c("clone", "git@github.com:mermaid-js/mermaid.git", temp_dir))
+processx::run("git", c("checkout", "v9.3.0"), wd = temp_dir)
 
 # look for syntax files
 syntax_files <- list.files(
@@ -26,9 +26,9 @@ for (file in syntax_files) {
   readr::write_lines(new_lines, dest_file)
 }
 
-# also render to gfm
-for (qmd in list.files("syntax", pattern = "*.qmd$", full.names = TRUE)) {
-  dest_file <- paste0(dirname(qmd), "/_", gsub("\\.qmd$", ".md", basename(qmd)))
-  out <- system(paste0("quarto render ", qmd, " --to gfm --output -"), intern = TRUE, ignore.stderr = TRUE)
-  readr::write_lines(out, dest_file)
-}
+# # also render to gfm
+# for (qmd in list.files("syntax", pattern = "*.qmd$", full.names = TRUE)) {
+#   dest_file <- paste0(dirname(qmd), "/_", gsub("\\.qmd$", ".md", basename(qmd)))
+#   out <- system(paste0("quarto render ", qmd, " --to gfm --output -"), intern = TRUE, ignore.stderr = TRUE)
+#   readr::write_lines(out, dest_file)
+# }
