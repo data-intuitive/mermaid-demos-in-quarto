@@ -1,0 +1,6 @@
+---
+title: "test_mermaid"
+listing:
+  contents: "demos/*.qmd"
+  type: default
+---

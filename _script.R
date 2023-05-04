@@ -1,0 +1,47 @@
+# Load required libraries
+library(rvest)
+library(purrr)
+library(glue)
+
+# clone mermaid repo but remove on exit
+temp_dir <- tempfile(pattern = "mermaid")
+on.exit(unlink(temp_dir, recursive = TRUE), add = TRUE)
+system(paste0("git clone git@github.com:mermaid-js/mermaid.git ", temp_dir))
+
+demo_files <- list.files(
+  paste0(temp_dir, "/demos"),
+  full.names = TRUE,
+  recursive = TRUE,
+  pattern = "\\.html$"
+)
+
+for (source_file in demo_files) {
+  # Read HTML content
+  html_content <- read_html(source_file)
+
+  # Extract body content
+  body_content <- html_content %>%
+    html_node("body") %>%
+    html_children()
+
+  # Extract text from the body content and format it as markdown
+  markdown_text <- body_content %>%
+    map_chr(function(x) {
+      tag_name <- xml2::xml_name(x)
+      
+      if (tag_name == "h1") {
+        glue("---\ntitle: \"{html_text(x)}\"\n---")
+      } else if (tag_name == "pre") {
+        glue("```{{mermaid}}\n{html_text(x)}\n```")
+      } else if (tag_name == "hr") {
+        "---"
+      } else {
+        ""
+      }
+    }) %>%
+    paste(collapse = "\n\n")
+
+  # Write markdown to file
+  dest_file <- paste0("demos/", gsub("\\.html", ".qmd", basename(source_file)))
+  writeLines(markdown_text, dest_file)
+}
