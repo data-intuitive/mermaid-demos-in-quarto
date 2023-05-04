@@ -10,9 +10,9 @@ Mermaid can render class diagrams.
 
 ```{mermaid}
 classDiagram
-    %%note "From Duck till Zebra"
+    note "From Duck till Zebra"
     Animal <|-- Duck
-    %%note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
     Animal <|-- Fish
     Animal <|-- Zebra
     Animal : +int age
@@ -33,10 +33,6 @@ classDiagram
         +run()
     }
 ```
-
-:::{.callout-important}
-Notes were commented out because they were not supported yet.
-:::
 
 ## Syntax
 
@@ -73,6 +69,26 @@ classDiagram
 ```
 
 Naming convention: a class name should be composed only of alphanumeric characters (including unicode), and underscores.
+
+### Class labels
+
+In case you need to provide a label for a class, you can use the following syntax:
+
+```{mermaid}
+classDiagram
+    class Animal["Animal with a label"]
+    class Car["Car with *! symbols"]
+    Animal --> Car
+```
+
+You can also use backticks to escape special characters in the label:
+
+```{mermaid}
+classDiagram
+    class `Animal Class!`
+    class `Car Class`
+    `Animal Class!` --> `Car Class`
+```
 
 ## Defining Members of a class
 
@@ -121,7 +137,7 @@ class BankAccount{
 
 #### Generic Types
 
-Members can be defined using generic types, such as `List<int>`, for fields, parameters, and return types by enclosing the type within `~` (**tilde**). Note: **nested** type declarations such as `List<List<int>>` are not currently supported.
+Members can be defined using generic types, such as `List<int>`, for fields, parameters, and return types by enclosing the type within `~` (**tilde**). **Nested** type declarations such as `List<List<int>>` are supported.
 
 Generics can be represented as part of a class definition and also in the parameters or the return value of a method/function:
 
@@ -137,11 +153,8 @@ class Square~Shape~{
 Square : -List~string~ messages
 Square : +setMessages(List~string~ messages)
 Square : +getMessages() List~string~
+Square : +getDistanceMatrix() List~List~int~~
 ```
-
-#### Return Type
-
-Optionally you can end the method/function definition with the data type that will be returned.
 
 #### Visibility
 
@@ -174,7 +187,7 @@ There are eight different types of relations defined for classes under UML which
 | Type    | Description   |
 | ------- | ------------- |
 | `<\|--` | Inheritance   |
-| `\*--`  | Composition   |
+| `*--`   | Composition   |
 | `o--`   | Aggregation   |
 | `-->`   | Association   |
 | `--`    | Link (Solid)  |
@@ -478,11 +491,11 @@ Beginner's tip—a full example using interactive links in an HTML page:
 
 ### Styling a node
 
-It is possible to apply specific styles such as a thicker border or a different background color to individual nodes. This is done by predefining classes in css styles that can be applied from the graph definition:
+It is possible to apply specific styles such as a thicker border or a different background color to individual nodes. This is done by predefining classes in css styles that can be applied from the graph definition using the `cssClass` statement or the `:::` short hand.
 
 ```html
 <style>
-  .cssClass > rect {
+  .styleClass > rect {
     fill: #ff0000;
     stroke: #ffff00;
     stroke-width: 4px;
@@ -493,35 +506,31 @@ It is possible to apply specific styles such as a thicker border or a different 
 Then attaching that class to a specific node:
 
 ```
-    cssClass "nodeId1" cssClass;
+    cssClass "nodeId1" styleClass;
 ```
 
 It is also possible to attach a class to a list of nodes in one statement:
 
 ```
-    cssClass "nodeId1,nodeId2" cssClass;
+    cssClass "nodeId1,nodeId2" styleClass;
 ```
 
 A shorter form of adding a class is to attach the classname to the node using the `:::` operator:
 
-```mermaid
+```{mermaid}
 classDiagram
-    class Animal:::cssClass
+    class Animal:::styleClass
 ```
 
 Or:
 
-```mermaid
+```{mermaid}
 classDiagram
-    class Animal:::cssClass {
+    class Animal:::styleClass {
         -int sizeInFeet
         -canEat()
     }
 ```
-
-:::{.callout-important}
-Disabled because it was not supported in mermaid 9.1.1 yet
-:::
 
 ?> cssClasses cannot be added using this shorthand method at the same time as a relation statement.
 

@@ -2,7 +2,7 @@
 temp_dir <- tempfile(pattern = "mermaid")
 on.exit(unlink(temp_dir, recursive = TRUE), add = TRUE)
 processx::run("git", c("clone", "git@github.com:mermaid-js/mermaid.git", temp_dir))
-processx::run("git", c("checkout", "v9.3.0"), wd = temp_dir)
+processx::run("git", c("checkout", "v10.1.0"), wd = temp_dir)
 
 # look for syntax files
 syntax_files <- list.files(
