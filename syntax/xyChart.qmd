@@ -17,9 +17,9 @@ xychart-beta
 
 ## Syntax
 
-```note
+:::{.callout-note}
 All text values that contain only one word can be written without `"`. If a text value has many words in it, specifically if it contains spaces, enclose the value in `"`
-```
+:::
 
 ### Orientations
 
@@ -42,9 +42,9 @@ xychart-beta
     ...
 ```
 
-```note
+:::{.callout-note}
 If the title is a single word one no need to use `"`, but if it has space `"` is needed
-```
+:::
 
 ### x-axis
 
@@ -64,9 +64,9 @@ The y-axis is employed to represent numerical range values, it cannot have categ
 1. `y-axis title min --> max`
 2. `y-axis title` it will only add the title, the range will be auto generated from data.
 
-```note
+:::{.callout-note}
 Both x and y axis are optional if not provided we will try to create the range
-```
+:::
 
 ### Line chart
 
@@ -125,10 +125,10 @@ xychart-beta
 
 ## Chart Theme Variables
 
-```note
+:::{.callout-note}
 Themes for xychart resides inside xychart attribute so to set the variables use this syntax
 %%{init: { "themeVariables": {"xyChart": {"titleColor": "#ff0000"} } }}%%
-```
+:::
 
 | Parameter        | Description                                               |
 | ---------------- | --------------------------------------------------------- |

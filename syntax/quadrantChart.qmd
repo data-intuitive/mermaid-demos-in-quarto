@@ -23,14 +23,14 @@ quadrantChart
 
 ## Syntax
 
-```note
+:::{.callout-note}
 If there are no points available in the chart both **axis** text and **quadrant** will be rendered in the center of the respective quadrant.
 If there are points **x-axis** labels will rendered from the left of the respective quadrant also they will be displayed at the bottom of the chart, and **y-axis** labels will be rendered at the bottom of the respective quadrant, the quadrant text will render at the top of the respective quadrant.
-```
+:::
 
-```note
+:::{.callout-note}
 For points x and y value min value is 0 and max value is 1.
-```
+:::
 
 ### Title
 

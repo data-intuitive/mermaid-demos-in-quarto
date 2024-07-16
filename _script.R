@@ -16,11 +16,14 @@ if (!dir.exists("syntax")) dir.create("syntax")
 
 # convert to qmd file
 for (file in syntax_files) {
-  lines <- readr::read_lines(file)
-
-  new_lines <- gsub("```(mermaid-example|mmd|mermaid)", "```{mermaid}", lines)
-  # remove titles in codeblocks
-  new_lines <- gsub("```\\{mermaid\\}\n---\ntitle:[^-]*\n---", "```{mermaid}", paste(new_lines, collapse = "\n"))
+  new_lines <- readr::read_lines(file) %>%
+    paste(collapse = "\n") %>%
+    # fix mermaid blocks
+    gsub("```(mermaid-example|mmd|mermaid)", "```{mermaid}", .)
+    # remove titles in codeblocks
+    gsub("```\\{mermaid\\}\n---\ntitle:[^-]*\n---", "```{mermaid}", .) %>%
+    # fix callout blocks, e.g. from ```warning\n...\n``` to `:::{.callout-warning}\n...\n:::`
+    gsub("```(note|warning|tip|important|caution)\n(.*?)\n```", ":::{.callout-\\1}\n\\2\n:::", .)
 
   dest_file <- paste0("syntax/", gsub("\\.md", ".qmd", basename(file)))
   readr::write_lines(new_lines, dest_file)
