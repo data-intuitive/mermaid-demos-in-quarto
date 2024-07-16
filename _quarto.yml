@@ -2,14 +2,19 @@ project:
   type: website
 
 website:
-  title: "Mermaid syntax demos in Quarto"
+  title: "Mermaid demos in Quarto"
   site-url: https://mermaid-demos-in-quarto.netlify.app
   repo-url: https://github.com/data-intuitive/mermaid-demos-in-quarto
   repo-actions: [edit, issue] 
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - text: Mermaid Docs
+        href: https://mermaid.js.org/syntax/flowchart.html
+      - text: quarto-dev/quarto-cli#416
+        href: https://github.com/quarto-dev/quarto-cli/issues/5416
+    right: 
+      - text: Mermaid 10.2.4
+      - text: Quarto 1.5.54
   
   sidebar:
     contents:
