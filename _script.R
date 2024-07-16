@@ -1,8 +1,10 @@
+library(dplyr)
+
 # clone mermaid repo but remove on exit
 temp_dir <- tempfile(pattern = "mermaid")
 on.exit(unlink(temp_dir, recursive = TRUE), add = TRUE)
 processx::run("git", c("clone", "git@github.com:mermaid-js/mermaid.git", temp_dir))
-processx::run("git", c("checkout", "v10.9.1"), wd = temp_dir)
+processx::run("git", c("checkout", "v10.2.4"), wd = temp_dir)
 
 # look for syntax files
 syntax_files <- list.files(
@@ -19,7 +21,7 @@ for (file in syntax_files) {
   new_lines <- readr::read_lines(file) %>%
     paste(collapse = "\n") %>%
     # fix mermaid blocks
-    gsub("```(mermaid-example|mmd|mermaid)", "```{mermaid}", .)
+    gsub("```(mermaid-example|mmd|mermaid)", "```{mermaid}", .) %>%
     # remove titles in codeblocks
     gsub("```\\{mermaid\\}\n---\ntitle:[^-]*\n---", "```{mermaid}", .) %>%
     # fix callout blocks, e.g. from ```warning\n...\n``` to `:::{.callout-warning}\n...\n:::`
@@ -35,3 +37,4 @@ for (file in syntax_files) {
 #   out <- system(paste0("quarto render ", qmd, " --to gfm --output -"), intern = TRUE, ignore.stderr = TRUE)
 #   readr::write_lines(out, dest_file)
 # }
+
