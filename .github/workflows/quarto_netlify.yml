@@ -37,6 +37,9 @@ jobs:
         with:
           version: 1.5.54
           tinytex: true
+      
+      - name: Quarto check
+        run: quarto check
 
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
